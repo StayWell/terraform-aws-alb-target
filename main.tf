@@ -1,16 +1,12 @@
 resource "aws_lb_target_group" "this" {
-  name_prefix = "${var.env}"
   port        = "${var.port}"
   protocol    = "HTTP"
   vpc_id      = "${var.vpc_id}"
   target_type = "${var.target_type}"
+  tags        = "${merge(map("Name", "${var.env}"), var.tags)}"
 
   health_check {
     path = "${var.health_check_path}"
-  }
-
-  lifecycle {
-    create_before_destroy = true
   }
 }
 
