@@ -6,7 +6,8 @@ resource "aws_lb_target_group" "this" {
   tags        = "${merge(map("Name", "${var.env}"), var.tags)}"
 
   health_check {
-    path = "${var.health_check_path}"
+    path    = "${var.health_check_path}"
+    matcher = "${var.matcher}"
   }
 }
 
