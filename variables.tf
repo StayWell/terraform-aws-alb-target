@@ -57,3 +57,8 @@ variable "tags" {
   description = "(optional) Additional tags applied to all resources"
   default     = {}
 }
+
+variable "matcher" {
+  description = "(optional) https://www.terraform.io/docs/providers/aws/r/lb_target_group.html#matcher"
+  default     = "200"
+}
